@@ -18,7 +18,7 @@
 - [x] I.1. Android: guía reproducible de Capacitor e identificador definido; SDK/Gradle ausentes, sin APK declarado.
 - [ ] J. Capacitor/Android: bloqueado por ausencia de Android SDK/Gradle; guía reproducible en `ANDROID_SETUP.md`.
 - [x] K. QA inicial: pruebas de reglas y bundle web verificable con esbuild; el pipeline Vite queda documentado como bloqueo del runtime Windows/Node 24.
-- [x] L. Publicación preparada: `.gitignore`, `vercel.json` y documentación de GitHub/Vercel; publicación externa bloqueada por ausencia de CLI/sesión.
+- [x] L. Publicación: repositorio GitHub y despliegue Vercel verificados.
 
 ## Criterios actuales
 - La web debe compilar con `npm run build`.
@@ -32,4 +32,11 @@
 3. Añadir OCR/barcode local validado y persistencia segura de imágenes.
 4. Completar privacidad/términos, importador CSV con preview y tests de integración.
 5. Instalar/configurar Android SDK + Gradle y generar APK/AAB real.
-6. Autenticar GitHub/Vercel mediante sus flujos oficiales y publicar verificando las URLs reales.
+6. Configurar Supabase, autenticación real, OCR/barcode, push y Android.
+
+## Publicación verificada
+- GitHub: https://github.com/buzzentt-sudo/buzzent-stockpilot
+- Rama: `main`
+- Vercel: https://buzzent-stockpilot.vercel.app/
+- Proyecto Vercel: `buzzent-stockpilot`
+- Variables remotas: ninguna; Supabase no está configurado.

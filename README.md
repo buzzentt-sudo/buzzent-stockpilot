@@ -40,8 +40,8 @@ Android/Capacitor queda pendiente porque la inspección no encontró Android SDK
 
 ## GitHub y Vercel
 
-El proyecto incluye `.gitignore` para evitar secretos, dependencias, builds y artefactos Android. En este entorno no están instalados GitHub CLI ni Vercel CLI, y no existe una sesión autenticada ni remoto Git configurado. Por eso no se afirma que el código haya sido publicado. Con una sesión oficial disponible, el repositorio se puede crear como `buzzent-stockpilot` y Vercel puede usar el `vercel.json` existente. No se deben copiar tokens al chat ni al repositorio.
+El repositorio fue publicado en [GitHub](https://github.com/buzzentt-sudo/buzzent-stockpilot), rama `main`. Vercel está desplegado en [buzzent-stockpilot.vercel.app](https://buzzent-stockpilot.vercel.app/). El proyecto usa `vercel.json`, `npm run build` y salida `dist`. No se configuraron variables secretas; la app funciona en modo local hasta conectar Supabase.
 
 ## Limitaciones conocidas
 
-La alta de producto y movimientos funcionan en local; la pantalla de registro no sustituye todavía una autenticación multiempresa. OCR, lector de códigos, importación CSV con preview, RLS, recuperación de contraseña, landing pública y APK requieren la siguiente fase. No hay URL desplegada ni APK verificado en este entorno.
+La alta de producto y movimientos funcionan en local; la pantalla de registro no sustituye todavía una autenticación multiempresa. OCR, lector de códigos, importación CSV con preview, RLS remoto aplicado, recuperación de contraseña, push y APK requieren la siguiente fase. La landing está publicada; no existe APK verificado.
