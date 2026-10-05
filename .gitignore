@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.vite/
+.env
+.env.*
+!.env.example
+*.local
+*.log
+android/.gradle/
+android/build/
+android/app/build/
+android/.idea/
+*.jks
+*.keystore
+supabase/.temp/
+.DS_Store
