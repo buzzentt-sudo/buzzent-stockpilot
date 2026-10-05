@@ -31,10 +31,20 @@ En este entorno, `npm run build` puede usar el pipeline Vite; si el transform de
 - Landing integrada como vista “Presentación”.
 - Migración Supabase con organizaciones, miembros, productos, movimientos, preferencias y RLS en `supabase/migrations/0001_stockpilot.sql`.
 - Función SQL `record_inventory_movement` para actualizar stock y auditar el movimiento de forma atómica.
+- Cliente oficial `@supabase/supabase-js` con sesión persistente, registro, inicio/cierre de sesión y recuperación por email.
+- Repositorio remoto para leer productos/movimientos y ejecutar altas, ediciones y movimientos con RLS; el modo local se conserva cuando faltan variables.
 
-## Integración pendiente
+## Configurar Supabase
 
-Copiar `.env.example` a `.env.local`, configurar `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY`, y ejecutar la migración SQL en Supabase. La app detecta esas variables, pero la autenticación remota aún requiere completar el cliente Supabase y probar políticas contra un proyecto real. Nunca colocar una service role key en el frontend.
+1. Crear un proyecto gratuito en Supabase.
+2. En el SQL Editor, ejecutar `supabase/migrations/0001_stockpilot.sql` completo. La migración habilita RLS, crea el trigger de onboarding y la función transaccional de movimientos; puede ejecutarse nuevamente porque las políticas y el trigger se reemplazan de forma segura.
+3. Copiar `.env.example` a `.env.local` y completar únicamente `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` desde Project Settings / API.
+4. Ejecutar `npm run dev`, registrar una cuenta y confirmar el email si la política de Auth lo requiere.
+5. Para Vercel, cargar las mismas dos variables en Project Settings / Environment Variables y redeployar.
+
+Nunca colocar una `service_role` key en el frontend, GitHub, `.env.example` ni Vercel público. La app no afirma estar conectada hasta que esas variables existan y una sesión pueda consultar la organización.
+
+La migración desde datos locales es deliberadamente conservadora: esta etapa no borra `sp-products` ni `sp-moves`. Antes de habilitarla en producción debe agregarse una pantalla de vista previa/confirmación que suba filas validadas y solo limpie el almacenamiento local después de confirmar el resultado.
 
 Android/Capacitor queda pendiente porque la inspección no encontró Android SDK, ADB ni Gradle disponibles. Ver [ANDROID_SETUP.md](ANDROID_SETUP.md) para añadir Capacitor, sincronizar `android/`, usar `com.buzzent.stockpilot`, probar permisos de cámara y ejecutar `gradlew.bat assembleDebug`.
 
@@ -44,4 +54,4 @@ El repositorio fue publicado en [GitHub](https://github.com/buzzentt-sudo/buzzen
 
 ## Limitaciones conocidas
 
-La alta de producto y movimientos funcionan en local; la pantalla de registro no sustituye todavía una autenticación multiempresa. OCR, lector de códigos, importación CSV con preview, RLS remoto aplicado, recuperación de contraseña, push y APK requieren la siguiente fase. La landing está publicada; no existe APK verificado.
+La conexión remota está implementada en código pero no fue verificada contra un proyecto Supabase real en este entorno porque no hay URL ni anon key configuradas. OCR, lector de códigos, importación CSV con preview, migración asistida desde localStorage, push y APK requieren la siguiente fase. La landing está publicada; no existe APK verificado.

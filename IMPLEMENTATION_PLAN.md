@@ -14,7 +14,7 @@
 - [x] F. Importación/exportación: exportación CSV funcional; importación avanzada pendiente.
 - [x] G. Fotografía: selector de archivo/cámara, fallback manual y privacidad explícita; OCR/barcode pendiente de dependencia mantenida.
 - [x] H. Landing pública: presentación integrada con CTA al panel, beneficios y explicación de foto/confirmación humana.
-- [x] I. Supabase/RLS: migración multiempresa con RLS, función transaccional de movimientos y configuración preparada; falta probarla contra un proyecto real.
+- [x] I. Supabase/RLS: cliente oficial, auth, repositorio remoto, migración multiempresa con onboarding, RLS y función transaccional de movimientos; falta probarlo contra un proyecto real.
 - [x] I.1. Android: guía reproducible de Capacitor e identificador definido; SDK/Gradle ausentes, sin APK declarado.
 - [ ] J. Capacitor/Android: bloqueado por ausencia de Android SDK/Gradle; guía reproducible en `ANDROID_SETUP.md`.
 - [x] K. QA inicial: pruebas de reglas y bundle web verificable con esbuild; el pipeline Vite queda documentado como bloqueo del runtime Windows/Node 24.
@@ -27,10 +27,10 @@
 - No se afirma que OCR, backend remoto o APK estén disponibles sin herramientas y ejecución verificable.
 
 ## Pendientes explícitos
-1. Configurar Supabase y ejecutar `supabase/migrations/0001_stockpilot.sql` en un proyecto real.
-2. Implementar auth real, recuperación de contraseña y servidor para operaciones transaccionales.
+1. Configurar Supabase y ejecutar `supabase/migrations/0001_stockpilot.sql` en un proyecto real; validar dos organizaciones aisladas.
+2. Añadir migración asistida desde localStorage con preview, duplicados y confirmación sin borrado prematuro.
 3. Añadir OCR/barcode local validado y persistencia segura de imágenes.
-4. Completar privacidad/términos, importador CSV con preview y tests de integración.
+4. Completar privacidad/términos, importador CSV con preview y tests de integración remota.
 5. Instalar/configurar Android SDK + Gradle y generar APK/AAB real.
 6. Configurar Supabase, autenticación real, OCR/barcode, push y Android.
 
@@ -39,4 +39,9 @@
 - Rama: `main`
 - Vercel: https://buzzent-stockpilot.vercel.app/
 - Proyecto Vercel: `buzzent-stockpilot`
-- Variables remotas: ninguna; Supabase no está configurado.
+- Variables remotas: ninguna; Supabase no está configurado en este entorno.
+
+## Verificación de esta etapa
+- [x] `npm test`: 3 pruebas unitarias verdes.
+- [x] `npm run build`: TypeScript y bundle de producción generados en `dist/`.
+- [ ] Conexión Supabase real: pendiente de variables del propietario; no se declara aprobada.
