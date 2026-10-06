@@ -54,4 +54,4 @@ El repositorio fue publicado en [GitHub](https://github.com/buzzentt-sudo/buzzen
 
 ## Limitaciones conocidas
 
-La conexión remota está implementada en código pero no fue verificada contra un proyecto Supabase real en este entorno porque no hay URL ni anon key configuradas. OCR, lector de códigos, importación CSV con preview, migración asistida desde localStorage, push y APK requieren la siguiente fase. La landing está publicada; no existe APK verificado.
+La conexión remota está implementada en código. Se creó el proyecto Supabase `buzzent-stockpilot` (`tmmmlpytwvjeacsiccye`) y las variables existen localmente en `.env.local` (archivo ignorado). Falta ejecutar la migración SQL y verificar registro/RLS contra ese proyecto; la sesión de Supabase requiere completar MFA. OCR, lector de códigos, importación CSV con preview, migración asistida desde localStorage, push y APK requieren la siguiente fase. La landing está publicada; no existe APK verificado.

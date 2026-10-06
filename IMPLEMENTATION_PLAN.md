@@ -44,4 +44,5 @@
 ## Verificación de esta etapa
 - [x] `npm test`: 3 pruebas unitarias verdes.
 - [x] `npm run build`: TypeScript y bundle de producción generados en `dist/`.
-- [ ] Conexión Supabase real: pendiente de variables del propietario; no se declara aprobada.
+- [x] Proyecto Supabase creado: `buzzent-stockpilot` / ref `tmmmlpytwvjeacsiccye`, estado Healthy.
+- [ ] Migración SQL, registro, lectura remota y aislamiento RLS: pendientes de completar MFA y ejecutar la migración.
